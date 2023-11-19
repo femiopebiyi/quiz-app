@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@200;400&family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;1,200;1,300&family=Tektur:wght@600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: "Poppins";
+}
+
+
+
+header{
+    width: 90%;
+    border: 1px solid red;
+    margin: 2em auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo{
+    font-size: 2rem;
+    font-weight: 700;
+}
+.nav{
+    display: flex;
+    list-style: none;
+
+}
+
+.navlist{
+    margin: 0 1.5em;
+    
+}
+
+.navlink{
+    font-size: 1.5rem;
+    color: black;
+    text-decoration: none;
+}
+
+.navlink:hover{
+    text-decoration: underline;
+    text-underline-offset: 5px;
+}
+
+.container{
+    width: 90%;
+    border: 1px solid red;
+    margin: 2em auto;
+    margin-top: 10em;
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+input{
+    margin-left: 2em;
+}
+.check-container{
+    border: 1px solid black;
+    width: 90%;
+    margin: 2em auto 0 auto;
+    display: flex;
+    justify-content: center;
+}
+.check{
+    padding: .4em;
+}
+.container p {
+    width: 100%;
+    text-align: center;
+}
