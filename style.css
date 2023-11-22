@@ -12,10 +12,30 @@ body {
 }
 
 
+.ham {
+    flex-direction: column;
+    font-size: 1rem;
+    align-items: center;
+}
+
+.ham-container{
+    /* border: 1px solid black; */
+    height: 30px;
+    width: 30px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ham-container span{
+    height: 2px;
+    width: 100%;
+    background: #000;
+}
 
 header{
     width: 90%;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     margin: 2em auto;
     display: flex;
     justify-content: space-between;
@@ -30,6 +50,10 @@ header{
     display: flex;
     list-style: none;
 
+}
+
+.ham-nav{
+    display: none;
 }
 
 .navlist{
@@ -69,11 +93,40 @@ input{
     margin: 2em auto 0 auto;
     display: flex;
     justify-content: center;
+    gap: 1rem;
 }
-.check{
+.check, .next{
     padding: .4em;
 }
 .container p {
     width: 100%;
     text-align: center;
+}
+
+
+
+@media screen and (max-width: 675px){
+    
+
+
+
+    #nav-big{
+        display: none;
+    }
+    .ham-container{
+        display: flex;
+        position: relative;
+    }
+    .ham-nav{
+        display: flex;
+        visibility: hidden;
+        position: absolute;
+        top: 80px;
+        right: 30px;
+
+    }
+}
+
+.clicked {
+    visibility: visible;
 }

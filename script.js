@@ -3,6 +3,7 @@ const checkboxes = document.querySelectorAll("input");
 const labels = document.querySelectorAll("label");
 const checkButton = document.querySelector(".check")
 const resultDisplay = document.querySelector(".result")
+const nextButton = document.querySelector(".next")
 
 
 
@@ -70,6 +71,7 @@ checkButton.addEventListener("click", function(){
         
         if(correctAns === clicked){
             resultDisplay.innerHTML = "you got it right!!!!"
+
         } else {
             resultDisplay.innerHTML = "you got it wrong!!!!"
         }
@@ -102,3 +104,32 @@ function getCheckedCheckboxLabel() {
                 }
             }
         }
+
+    
+
+
+
+
+    
+
+    const hamButton = document.querySelector(".ham-container");
+    const hamMenu = document.querySelector(".ham-nav");
+
+    hamButton.addEventListener ("click", ()=>{
+
+
+        hamMenu.classList.toggle("clicked");
+        
+
+
+
+
+        // if(hamMenu.style.display === "none"){
+        //     hamMenu.style.display = "flex"
+        // }else{
+        //     hamMenu.style.display = "none"
+        // }
+        
+
+        
+    })
