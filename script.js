@@ -38,8 +38,13 @@ async function fetchQuiz (){
 
         const resultBody = quiz.results[0]
         const {correct_answer, incorrect_answers, question} = resultBody;
+        
         const correctAnswer = correct_answer
         correctAns = correctAnswer
+        var decodedText = document.createElement('textarea');
+        decodedText.innerHTML = correctAns;
+        var readableText = decodedText.value;
+        correctAns =  readableText
         console.log(`this is the answer "${correctAnswer}"`)
         questionDisplay.innerHTML = question
         incorrect_answers.push(correct_answer);
@@ -50,7 +55,7 @@ async function fetchQuiz (){
             labels[i].innerHTML = incorrect_answers[i]
         }
         
-        return correctAnswer;
+        
         } 
     catch(error){
         console.log(error, 'cant retrieve question')
@@ -69,15 +74,32 @@ checkButton.addEventListener("click", function(){
 
         console.log(clicked)
         
-        if(correctAns === clicked){
-            resultDisplay.innerHTML = "you got it right!!!!"
+        if(correctAns.trim() === clicked.trim()){
+            resultDisplay.innerHTML = "you got it right!!!!";
+            countdown(5)
+            // setTimeout(()=>{
+            //     resultDisplay.innerHTML = ""
+            //     // uncheckAll()
+            //     // fetchQuiz()
+                
+            // }, 3000)
+            
 
         } else {
-            resultDisplay.innerHTML = "you got it wrong!!!!"
+            resultDisplay.innerHTML = "you got it wrong!! try again";
+            setTimeout(()=>{
+                resultDisplay.innerHTML = ""
+            }, 3000)
         }
     })
     
 })
+
+function uncheckAll(){
+    checkboxes.forEach((item)=>{
+        item.checked = false;
+    })
+}
 
 
 
@@ -133,3 +155,36 @@ function getCheckedCheckboxLabel() {
 
         
     })
+    
+
+
+const timer = document.querySelector(".count")
+const timerText = document.querySelector(".text")
+
+function countdown(seconds) {
+timer.innerHTML = seconds;
+
+if (seconds > 0) {
+    timer.style.visibility = 'visible'
+    timerText.style.visibility = 'visible'
+// Decrement the seconds and call the countdown function recursively after 1000 milliseconds (1 second)
+setTimeout(function() {
+    countdown(seconds - 1);
+    
+}, 1000);
+} else if(seconds<=0){
+timer.style.visibility = 'hidden'
+timerText.style.visibility = 'hidden'
+console.log("Time's up!");
+uncheckAll()
+fetchQuiz()
+resultDisplay.innerHTML = "";
+
+
+
+}
+}
+
+// Start the countdown from 5 seconds
+
+
