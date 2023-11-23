@@ -7,6 +7,11 @@ const nextButton = document.querySelector(".next")
 const resultImg =  document.querySelector(".result-img")
 
 
+const generalKnowledge = 9;
+const Anime = 31;
+const sports = 21;
+fetchQuiz(generalKnowledge)
+
 
 checkboxes.forEach(function(checkbox) {
             checkbox.addEventListener('change', function() {
@@ -30,9 +35,9 @@ function shuffleArray(array) {
 
 let correctAns;
 
-async function fetchQuiz (){
+async function fetchQuiz (category){
     try{
-        const api = await fetch("https://opentdb.com/api.php?amount=1&category=9&difficulty=medium&type=multiple");
+        const api = await fetch(`https://opentdb.com/api.php?amount=1&category=${category}&difficulty=easy&type=multiple`);
         const quiz = await api.json()
 
         console.log(quiz)
@@ -64,7 +69,7 @@ async function fetchQuiz (){
 }
 
 
-fetchQuiz()
+
 
 
 checkButton.addEventListener("click", function(){
@@ -76,8 +81,9 @@ checkButton.addEventListener("click", function(){
         console.log(clicked)
         
         if(correctAns.trim() === clicked.trim()){
-            resultDisplay.innerHTML = "you got it right!!!!";
             resultImg.src = 'checkmark.svg'
+            resultDisplay.innerHTML = "you got it right!!!!";
+            
             countdown(5)
             // setTimeout(()=>{
             //     resultDisplay.innerHTML = ""
@@ -88,8 +94,9 @@ checkButton.addEventListener("click", function(){
             
 
         } else {
-            resultDisplay.innerHTML = "you got it wrong!! try again";
             resultImg.src = 'xmark-solid (1).svg'
+            resultDisplay.innerHTML = "you got it wrong!! try again";
+            
             setTimeout(()=>{
                 resultDisplay.innerHTML = ""
                 resultImg.src = ''
@@ -185,7 +192,15 @@ timer.style.visibility = 'hidden'
 timerText.style.visibility = 'hidden'
 console.log("Time's up!");
 uncheckAll()
-fetchQuiz()
+
+if(buttons[0].classList.contains('checked')){
+    fetchQuiz(generalKnowledge)
+} else if(buttons[1].classList.contains('checked')){
+    fetchQuiz(sports)
+} else if (buttons[2].classList.contains('checked')){
+    fetchQuiz(Anime)
+}
+
 resultDisplay.innerHTML = "";
 resultImg.src = ''
 checkButton.disabled = false;
@@ -209,4 +224,16 @@ buttons.forEach(function(button){
             }
         })
     })
+})
+
+
+
+buttons[0].addEventListener(('click'), ()=>{
+    fetchQuiz(generalKnowledge)
+})
+buttons[1].addEventListener(('click'), ()=>{
+    fetchQuiz(sports)
+})
+buttons[2].addEventListener(('click'), ()=>{
+    fetchQuiz(Anime)
 })
