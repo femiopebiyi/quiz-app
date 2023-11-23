@@ -134,7 +134,9 @@ function getCheckedCheckboxLabel() {
     
 
 
-
+        document.getElementById('menu').addEventListener('click', function () {
+  this.classList.toggle('close');
+});
 
     
 

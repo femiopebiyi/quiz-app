@@ -26,7 +26,7 @@ body {
 
 .ham-container{
     /* border: 1px solid black; */
-    height: 30px;
+    height: 20px;
     width: 30px;
     display: none;
     flex-direction: column;
@@ -37,6 +37,21 @@ body {
     height: 2px;
     width: 100%;
     background: #000;
+    transition: transform 0.3s ease-in-out;
+
+    
+}
+
+.ham-container.close .bar:nth-child(1) {
+    transform: translateY(8.5px) rotate(45deg);
+}
+
+.ham-container.close .bar:nth-child(2) {
+    transform: scaleX(0);
+}
+
+.ham-container.close .bar:nth-child(3) {
+    transform: translateY(-8.5px) rotate(-45deg);
 }
 
 header{
@@ -215,6 +230,8 @@ input{
         position: absolute;
         top: 80px;
         right: 30px;
+        background: #fff;
+        z-index: 1;
 
     }
 }
