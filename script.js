@@ -4,6 +4,7 @@ const labels = document.querySelectorAll("label");
 const checkButton = document.querySelector(".check")
 const resultDisplay = document.querySelector(".result")
 const nextButton = document.querySelector(".next")
+const resultImg =  document.querySelector(".result-img")
 
 
 
@@ -76,6 +77,7 @@ checkButton.addEventListener("click", function(){
         
         if(correctAns.trim() === clicked.trim()){
             resultDisplay.innerHTML = "you got it right!!!!";
+            resultImg.src = 'checkmark.svg'
             countdown(5)
             // setTimeout(()=>{
             //     resultDisplay.innerHTML = ""
@@ -87,9 +89,11 @@ checkButton.addEventListener("click", function(){
 
         } else {
             resultDisplay.innerHTML = "you got it wrong!! try again";
+            resultImg.src = 'xmark-solid (1).svg'
             setTimeout(()=>{
                 resultDisplay.innerHTML = ""
-            }, 3000)
+                resultImg.src = ''
+            }, 1500)
         }
     })
     
@@ -161,12 +165,14 @@ function getCheckedCheckboxLabel() {
 const timer = document.querySelector(".count")
 const timerText = document.querySelector(".text")
 
+
 function countdown(seconds) {
 timer.innerHTML = seconds;
 
 if (seconds > 0) {
     timer.style.visibility = 'visible'
     timerText.style.visibility = 'visible'
+    checkButton.disabled = true
 // Decrement the seconds and call the countdown function recursively after 1000 milliseconds (1 second)
 setTimeout(function() {
     countdown(seconds - 1);
@@ -179,12 +185,26 @@ console.log("Time's up!");
 uncheckAll()
 fetchQuiz()
 resultDisplay.innerHTML = "";
-
-
-
+resultImg.src = ''
+checkButton.disabled = false;
 }
 }
 
 // Start the countdown from 5 seconds
 
 
+
+
+const buttons = document.querySelectorAll(".category button");
+buttons[0].classList.add("checked")
+
+buttons.forEach(function(button){
+    button.addEventListener('click', function(){
+        button.classList.add('checked')
+        buttons.forEach(function(otherButton){
+            if(otherButton !== button){
+                otherButton.classList.remove('checked')
+            }
+        })
+    })
+})

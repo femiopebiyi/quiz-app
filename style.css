@@ -79,6 +79,10 @@ header{
 }
 
 .container{
+    border-radius: 0px 10px 46px 10px;
+        -webkit-border-radius: 0px 10px 46px 10px;
+        -moz-border-radius: 0px 10px 46px 10px;
+    overflow-wrap: normal;
     width: 90%;
     border: 1px solid grey;
     margin: 2em auto;
@@ -101,12 +105,76 @@ input{
     justify-content: center;
     gap: 1rem;
 }
-.check, .next{
-    padding: .4em;
+.check{
+    display: inline-block;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        font-weight: 600;
+        color: rgb(72, 76, 122);
+        font-size: 14px;
+        height: 38px;
+        padding: 8px 24px;
+        border-radius: 50px;
+        background-image: linear-gradient(180deg, #fff, #f5f5fa);
+        box-shadow: 0 4px 11px 0 rgb(37 44 97 / 15%), 0 1px 3px 0 rgb(93 100 148 / 20%);
+        transition: all .2s ease-out;
+    
+        
 }
-.container p {
+.check:hover {
+    box-shadow: 0 8px 22px 0 rgb(37 44 97 / 15%), 0 4px 6px 0 rgb(93 100 148 / 20%);
+}
+.container .question p {
     width: 100%;
     text-align: center;
+    
+}
+
+.category{
+    width: 90%;
+    margin: 0 auto;
+}
+.category button{
+    display: inline-block;
+        outline: 0;
+        border: 0;
+        cursor: pointer;
+        transition: box-shadow 0.15s ease, transform 0.15s ease;
+        will-change: box-shadow, transform;
+        background: #FCFCFD;
+        box-shadow: 0px 2px 4px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
+        height: 48px;
+        padding: 0 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        color: #36395a;
+        transition: box-shadow 0.15s ease, transform 0.15s ease;
+    
+        
+}
+
+.category button:hover {
+    box-shadow: 0px 4px 8px rgb(45 35 66 / 40%), 0px 7px 13px -3px rgb(45 35 66 / 30%), inset 0px -3px 0px #d6d6e7;
+    transform: translateY(-2px);
+}
+
+.category button:active {
+    box-shadow: inset 0px 3px 7px #d6d6e7;
+    transform: translateY(2px);
+}
+
+
+.result-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.result-container img{
+    height: 22px;
 }
 
 
@@ -123,7 +191,11 @@ input{
     visibility:hidden;
 }
 
-
+.checked{
+    background-color: black;
+    color: white;
+    font-weight: 600;
+}
 
 @media screen and (max-width: 675px){
     
