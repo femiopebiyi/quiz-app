@@ -33,16 +33,21 @@ function shuffleArray(array) {
     }
 }
 
+function pickRandom (){
+    const number = Math.floor(Math.random()*40)
+    return number
+}
+
 let correctAns;
 
 async function fetchQuiz (category){
     try{
-        const api = await fetch(`https://opentdb.com/api.php?amount=1&category=${category}&difficulty=easy&type=multiple`);
+        const api = await fetch(`https://opentdb.com/api.php?amount=40&category=${category}&difficulty=easy&type=multiple`);
         const quiz = await api.json()
 
         console.log(quiz)
-
-        const resultBody = quiz.results[0]
+        const pick = pickRandom()
+        const resultBody = quiz.results[pick]
         const {correct_answer, incorrect_answers, question} = resultBody;
         
         const correctAnswer = correct_answer
@@ -64,7 +69,12 @@ async function fetchQuiz (category){
         
         } 
     catch(error){
-        console.log(error, 'cant retrieve question')
+        console.log(error, 'cant retrieve question');
+        resultDisplay.innerHTML = 'slow down too many requests..try again';
+
+        setTimeout(()=>{
+            resultDisplay.innerHTML = '';
+        },1200)
     }
 }
 
@@ -84,7 +94,7 @@ checkButton.addEventListener("click", function(){
             resultImg.src = 'checkmark.svg'
             resultDisplay.innerHTML = "you got it right!!!!";
             
-            countdown(5)
+            countdown(4)
             // setTimeout(()=>{
             //     resultDisplay.innerHTML = ""
             //     // uncheckAll()
@@ -237,3 +247,37 @@ buttons[1].addEventListener(('click'), ()=>{
 buttons[2].addEventListener(('click'), ()=>{
     fetchQuiz(Anime)
 })
+
+
+// socials
+
+const socials = document.querySelectorAll(".fa-brands");
+
+
+socials[0].addEventListener("click", function(){
+    console.log('wjhfdkhg')
+    // Replace 'your_twitter_username' with your actual Twitter username
+        let twitterUrl = 'https://twitter.com/codewithopebiyi';
+
+        // Open a new tab/window with the Twitter page
+        window.open(twitterUrl, '_blank');
+})
+
+socials[1].addEventListener("click", function(){
+    // Replace 'your_twitter_username' with your actual Twitter username
+        let githubUrl = 'https://github.com/femiopebiyi';
+
+        // Open a new tab/window with the github page
+        window.open(githubUrl, '_blank');
+})
+
+socials[2].addEventListener("click", function(){
+    
+        let whatsappUrl = 'https://wa.me/qr/BY7ISG27JTMUM1';
+
+        // Open a new tab/window with the whatsapp page
+        window.open(whatsappUrl, '_blank');
+})
+
+
+

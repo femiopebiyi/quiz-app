@@ -210,7 +210,31 @@ input{
 .checked{
     background-color: black;
     color: white;
-    font-weight: 600;
+    font-weight: 700;
+}
+
+footer{
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 2em;
+    border-top: .5px solid gray;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+i{
+    margin: 0 .5em;
+    font-size: 33px;
+    cursor: pointer;
+}
+.socials-con{
+    display: flex;
+
+}
+
+footer p{
+    font-weight: 700;
 }
 
 @media screen and (max-width: 675px){
