@@ -280,4 +280,10 @@ socials[2].addEventListener("click", function(){
 })
 
 
+const links = document.querySelectorAll(".navlink")
 
+if(buttons[0].innerHTML){
+    links[0].style.color = 'white'
+} else{
+    links[0].style.color = 'black'
+}

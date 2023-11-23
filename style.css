@@ -94,6 +94,10 @@ header{
     text-underline-offset: 5px;
 }
 
+.navlink:active{
+    color: white;
+}
+
 .container{
     border-radius: 0px 10px 46px 10px;
         -webkit-border-radius: 0px 10px 46px 10px;
