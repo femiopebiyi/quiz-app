@@ -3,12 +3,12 @@ const textarea = document.querySelector("textarea");
 
 const submit = document.querySelector("button");
 
-const details = {
-    firstName: inputs[0].value,
-    lastName: inputs[1].value,
-    email: inputs[2].value,
-    message: textarea.value
-}
+// const details = {
+//     firstName: inputs[0].value,
+//     lastName: inputs[1].value,
+//     email: inputs[2].value,
+//     message: textarea.value
+// }
 
 if(document.title === "Contact"){
     links[2].style.color = 'white'
@@ -23,11 +23,7 @@ submit.addEventListener("click", function(){
         }
     })
 
-    let mailtoLink = "mailto:opebiyibiodun10@gmail.com?subject=suggestion&body=" + encodeURIComponent(`Name: ${details.lastName} ${details.firstName}
-    
-    \n
-    ${details.message}
-    `);
+    let mailtoLink = "mailto:opebiyibiodun10@gmail.com?subject=Forwarded Message&body=" + encodeURIComponent(`My name is ${inputs[1].value} ${inputs[0].value} and this is my suggestion: ${textarea.value}`);
 
             // Open the default email client
             window.location.href = mailtoLink;
