@@ -25,7 +25,7 @@ submit.addEventListener("click", function(){
 
         
         error.innerHTML = ''
-        let mailtoLink = "mailto:opebiyibiodun10@gmail.com?subject=Forwarded Message&body=" + encodeURIComponent(`My name is ${inputs[1].value} ${inputs[0].value} and this is my suggestion: ${textarea.value}`);
+        let mailtoLink = "mailto:opebiyibiodun10@gmail.com?subject=Forwarded Message&body=" + encodeURIComponent(`My name is ${lastName.value} ${firstName.value} and this is my suggestion: ${message.value}`);
 
             // Open the default email client
             window.location.href = mailtoLink;
