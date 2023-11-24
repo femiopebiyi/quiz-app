@@ -1,8 +1,9 @@
-const inputs = document.querySelectorAll("input");
-const textarea = document.querySelector("textarea");
-
+var firstName = document.getElementById("firstName")
+var lastName = document.getElementById("lastName")
+var email = document.getElementById("email")
+var message = document.getElementById("message")
 const submit = document.querySelector("button");
-
+const error = document.querySelector(".error")
 // const details = {
 //     firstName: inputs[0].value,
 //     lastName: inputs[1].value,
@@ -17,14 +18,18 @@ if(document.title === "Contact"){
 }
 
 submit.addEventListener("click", function(){
-    inputs.forEach((item)=>{
-        if(!item.value.trim() || !textarea.value.trim()){
-            return
-        }
-    })
+    if(!firstName.value || !lastName.value || !email.value || !message.value){
+        error.innerHTML = 'all fields must be filled'
+        
+    } else{
 
-    let mailtoLink = "mailto:opebiyibiodun10@gmail.com?subject=Forwarded Message&body=" + encodeURIComponent(`My name is ${inputs[1].value} ${inputs[0].value} and this is my suggestion: ${textarea.value}`);
+        
+        error.innerHTML = ''
+        let mailtoLink = "mailto:opebiyibiodun10@gmail.com?subject=Forwarded Message&body=" + encodeURIComponent(`My name is ${inputs[1].value} ${inputs[0].value} and this is my suggestion: ${textarea.value}`);
 
             // Open the default email client
             window.location.href = mailtoLink;
+    }
+
+    
 })
