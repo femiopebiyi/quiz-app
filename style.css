@@ -31,6 +31,7 @@ body {
     display: none;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .ham-container span{
@@ -66,6 +67,7 @@ header{
 .logo{
     font-size: 2rem;
     font-weight: 700;
+    cursor: pointer;
 }
 .nav{
     display: flex;

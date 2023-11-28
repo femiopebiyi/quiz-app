@@ -1,10 +1,33 @@
 const questionDisplay = document.querySelector(".question p")
 const checkboxes = document.querySelectorAll("input");
 const labels = document.querySelectorAll("label");
-const checkButton = document.querySelector(".check")
-const resultDisplay = document.querySelector(".result")
-const nextButton = document.querySelector(".next")
-const resultImg =  document.querySelector(".result-img")
+const checkButton = document.querySelector(".check");
+const resultDisplay = document.querySelector(".result");
+const nextButton = document.querySelector(".next");
+const resultImg =  document.querySelector(".result-img");
+const logo = document.querySelector(".logo");
+const hamButton = document.querySelector(".ham-container");
+const hamMenu = document.querySelector(".ham-nav");
+
+logo.addEventListener("click", function(){
+    const link = "index.html"
+
+    window.location.href = link
+})
+
+document.body.addEventListener("click", function(event){
+    const hamMenu = document.querySelector(".ham-nav");
+    const hamButton = document.querySelector(".ham-container");
+    if(hamMenu.contains(event.target)===true || hamButton.contains(event.target)=== true){
+        console.log("clicked outside")
+    } else{
+        if(hamButton.classList.contains("close")){
+            hamButton.click()
+        }
+
+    }
+})
+
 
 
 const generalKnowledge = 9;
@@ -157,8 +180,7 @@ function getCheckedCheckboxLabel() {
 
     
 
-    const hamButton = document.querySelector(".ham-container");
-    const hamMenu = document.querySelector(".ham-nav");
+    
 
     hamButton.addEventListener ("click", ()=>{
 

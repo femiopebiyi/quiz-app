@@ -11,6 +11,20 @@ const error = document.querySelector(".error")
 //     message: textarea.value
 // }
 
+document.body.addEventListener("click", function(event){
+    const hamMenu = document.querySelector(".ham-nav");
+    const hamButton = document.querySelector(".ham-container");
+    if(hamMenu.contains(event.target)===true || hamButton.contains(event.target)=== true){
+        console.log("clicked outside")
+    } else{
+        if(hamButton.classList.contains("close")){
+            hamButton.click()
+        }
+
+    }
+})
+
+
 if(document.title === "Contact"){
     links[2].style.color = 'white'
 } else{
@@ -18,7 +32,7 @@ if(document.title === "Contact"){
 }
 
 submit.addEventListener("click", function(){
-    if(!firstName.value || !lastName.value || !email.value || !message.value){
+    if(!firstName.value.trim() || !lastName.value.trim() || !email.value.trim() || !message.value.trim()){
         error.innerHTML = 'all fields must be filled'
         
     } else{
@@ -32,4 +46,13 @@ submit.addEventListener("click", function(){
     }
 
     
+})
+
+const log = document.querySelector(".logo");
+
+
+log.addEventListener("click", function(){
+    const link = "index.html"
+
+    window.location.href = link
 })

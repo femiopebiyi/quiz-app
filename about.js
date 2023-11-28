@@ -61,3 +61,25 @@ if(story.innerHTML){
 } else{
     links[1].style.color = 'black'
 }
+
+const logo = document.querySelector(".logo");
+
+logo.addEventListener("click", function(){
+    const link = "index.html"
+
+    window.location.href = link
+})
+
+
+document.body.addEventListener("click", function(event){
+    const hamMenu = document.querySelector(".ham-nav");
+    const hamButton = document.querySelector(".ham-container");
+    if(hamMenu.contains(event.target)===true || hamButton.contains(event.target)=== true){
+        console.log("clicked outside")
+    } else{
+        if(hamButton.classList.contains("close")){
+            hamButton.click()
+        }
+
+    }
+})
